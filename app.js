@@ -1,18 +1,23 @@
-let userName = prompt("What is your name?");
-console.log(userName);
+function getName() {
+    const userName = prompt("What is your name?");
+    console.log(userName);
+    return userName
+};
 
-let time = prompt("What hour of the day is it? (0-23)");
-let message;
+function getTimeMessage() {
+    const time = prompt("What hour of the day is it? (0-23)");
+    console.log(time);
+    let message;
 
-if (time < 12) {
-    message = "Good morning " + userName + "!";
-} else if (time <= 18) {
-    message = "Good afternoon " + userName + "!";
-} else if (time < 24) {
-    message = "Good evening " + userName + "!";
-} else {
-    message = "c'mon" + userName + "thats is not a valid time!";
-}
-
-console.log(message);
-document.write(message)
+    if (time < 12) {
+        message = "Good morning!";
+    } else if (time <= 18) {
+        message = "Good afternoon!";
+    } else if (time < 24) {
+        message = "Good evening!";
+    } else {
+        message = "c'mon, thats is not a valid time!";
+    }
+    console.log(message);
+    return message
+};
