@@ -5,19 +5,35 @@ function getName() {
 };
 
 function getTimeMessage() {
-    const time = prompt("What hour of the day is it? (0-23)");
-    console.log(time);
-    let message;
+    let timeNum;
+    let timeStr = "";
+    let isValid = false;
+    let message = "What hour of the day is it? (0-23)"
 
-    if (time < 12) {
-        message = "Good morning!";
-    } else if (time <= 18) {
-        message = "Good afternoon!";
-    } else if (time < 24) {
-        message = "Good evening!";
-    } else {
-        message = "c'mon, thats is not a valid time!";
-    }
+    do {
+        timeStr = prompt(message);
+        console.log(timeStr);
+        timeNum = Number(timeStr);
+
+        if (Number.isInteger(timeNum)) {
+            console.log("isNumber");
+            if (timeNum < 12) {
+                message = "Good morning!";
+                isValid = true;
+            } else if (timeNum <= 18) {
+                message = "Good afternoon!";
+                isValid = true;
+            } else if (timeNum < 24) {
+                message = "Good evening!";
+                isValid = true;
+            } else {
+                message = "c'mon, thats is not a valid time! What hour of the day is it? (0-23)";
+            }
+        } else {
+            message = "c'mon, thats is not an integer! What hour of the day is it? (0-23)";
+        }
+    } while (!isValid);
+
     console.log(message);
     return message
 };
