@@ -17,7 +17,10 @@ function getTimeMessage() {
 
         if (Number.isInteger(timeNum)) {
             console.log("isNumber");
-            if (timeNum < 12) {
+            if (timeNum < 0) {
+                message = "c'mon, thats is not a valid time! What hour of the day is it? (0-23)";
+            }
+            else if (timeNum < 12) {
                 message = "Good morning!";
                 isValid = true;
             } else if (timeNum <= 18) {
@@ -37,3 +40,12 @@ function getTimeMessage() {
     console.log(message);
     return message
 };
+
+function getAndDisplayHackCount() {
+    var n = prompt("How many times have you been hacked?", "0");
+    let str = "";
+    for (i = 0; i < n; ++i) {
+        str += '<img src="https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=600" />';
+    }
+    return str;
+}
